@@ -1,4 +1,4 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,10 +9,10 @@ public class MedicineCategory extends Entity{
 
     MedicineCategory(String name){
         setName(name);
-        _medicines = new LinkedList<Medicine>();
+        _medicines = new LinkedList<>();
     }
 
-    public void setName(String name){
+    private void setName(String name){
         this._name = name;
     }
 
@@ -22,5 +22,9 @@ public class MedicineCategory extends Entity{
 
     public void addNewMedicine(Medicine medicine){
         this._medicines.add(medicine);
+    }
+
+    public String getName() {
+        return _name;
     }
 }

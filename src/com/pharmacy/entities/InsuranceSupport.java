@@ -1,4 +1,4 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
 public class InsuranceSupport extends Entity{
     private final Insurance _insurance;

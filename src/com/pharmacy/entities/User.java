@@ -1,4 +1,4 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
 public class User extends Entity{
     private String _username;

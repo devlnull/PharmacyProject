@@ -1,4 +1,4 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class Script extends Entity{
     public Script(Patient patinet, Doctor doctor){
         this._patient = patinet;
         this._doctor = doctor;
-        scriptDetails = new LinkedList<ScriptDetail>();
+        scriptDetails = new LinkedList<>();
     }
 
     public void setScriptInfo(String request, ScriptStatus status){
@@ -27,5 +27,21 @@ public class Script extends Entity{
 
     public List<ScriptDetail> getScriptDetails(){
         return scriptDetails;
+    }
+
+    public Patient getPatient() {
+        return _patient;
+    }
+
+    public String getRequest() {
+        return _request;
+    }
+
+    public Doctor getDoctor() {
+        return _doctor;
+    }
+
+    public ScriptStatus getStatus() {
+        return _status;
     }
 }

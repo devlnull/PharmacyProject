@@ -1,6 +1,6 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
-public class Employee extends Person{
+public class Employee extends Person {
     public Employee(String firstname, String lastname){
         super(firstname, lastname);
     }

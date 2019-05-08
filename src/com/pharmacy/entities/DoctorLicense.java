@@ -1,4 +1,4 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
 public class DoctorLicense extends Entity{
     private Doctor _doctor;

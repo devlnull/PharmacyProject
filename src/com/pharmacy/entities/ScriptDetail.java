@@ -1,4 +1,4 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
 public class ScriptDetail extends Entity{
     private Script _script;

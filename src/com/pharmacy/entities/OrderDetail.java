@@ -1,4 +1,4 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
 public class OrderDetail extends Entity{
     private Order _order;

@@ -1,4 +1,4 @@
-package pharmacy.entities;
+package com.pharmacy.entities;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Order extends Entity{
     public Order(Patient patient, Script script){
         this._patient = patient;
         this._script = script;
-        _orderDetails = new LinkedList<OrderDetail>();
+        _orderDetails = new LinkedList<>();
     }
 
     public void addDetail(OrderDetail detail){
@@ -25,5 +25,17 @@ public class Order extends Entity{
 
     public void applyStatus(OrderStatus status){
         this._status = status;
+    }
+
+    public Patient getPatient() {
+        return _patient;
+    }
+
+    public Script getScript() {
+        return _script;
+    }
+
+    public OrderStatus getStatus() {
+        return _status;
     }
 }
