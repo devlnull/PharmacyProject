@@ -19,26 +19,26 @@ public class InMemoryRepoTest {
     public void Add_NotExistItem_WillBeAdd() throws Exception {
         IRepo<Address> repo = getRepo();
         Address address = new Address("Iran", "Tehran");
-        boolean addResult = repo.Add(address);
+        Address addResult = repo.Add(address);
         Address selectedAddress = repo.Get(address.getId());
         Assert.assertEquals(selectedAddress.getId(), address.getId());
-        Assert.assertTrue(addResult);
+        Assert.assertNotNull(addResult);
     }
 
     @Test
     public void Delete_NotExistItem_WillThrow() throws Exception {
         IRepo<Address> repo = getRepo();
         Address address = new Address("Iran", "Tehran");
-        boolean delResult = repo.Delete(address);
-        Assert.assertFalse(delResult);
+        Address delResult = repo.Delete(address);
+        Assert.assertNull(delResult);
     }
 
     @Test
     public void Update_NotExistItem_WillThrow() throws Exception {
         IRepo<Address> repo = getRepo();
         Address address = new Address("Iran", "Tehran");
-        boolean updateResult = repo.Update(address);
-        Assert.assertFalse(updateResult);
+        Address updateResult = repo.Update(address);
+        Assert.assertNull(updateResult);
     }
 
     @Test
@@ -47,8 +47,8 @@ public class InMemoryRepoTest {
         Address address = new Address("Iran", "Tehran");
         repo.Add(address);
         address.setAddressDetail("TehranPars", "","");
-        boolean updateResult = repo.Update(address);
-        Assert.assertTrue(updateResult);
+        Address updateResult = repo.Update(address);
+        Assert.assertNotNull(updateResult);
     }
 
     @Test

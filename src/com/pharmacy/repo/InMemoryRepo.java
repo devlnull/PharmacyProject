@@ -80,15 +80,24 @@ public class InMemoryRepo<T extends Entity> implements IRepo<T>{
     }
 
     @Override
-    public boolean Add(T item) {
+    public T Get(Predicate<T> predicate) {
+        Optional<T> targetItem = getEntityContext()
+                .stream()
+                .filter(predicate)
+                .findFirst();
+        return targetItem.orElse(null);
+    }
+
+    @Override
+    public T Add(T item) {
         try {
             List<T> entityContext = getEntityContext();
             checkIfExist(item);
             entityContext.add(item);
-            return true;
+            return item;
         } catch (Exception ex){
             System.out.println(ex.getMessage());
-            return false;
+            return null;
         }
     }
 
@@ -105,43 +114,43 @@ public class InMemoryRepo<T extends Entity> implements IRepo<T>{
     }
 
     @Override
-    public boolean Delete(T item) {
+    public T Delete(T item) {
         try {
             List<T> entityContext = getEntityContext();
             checkIfNotExist(item.getId());
             entityContext.remove(item);
-            return true;
+            return item;
         } catch (Exception ex){
             System.out.println(ex.getMessage());
-            return false;
+            return null;
         }
     }
 
     @Override
-    public boolean Delete(String id) {
+    public T Delete(String id) {
         try {
             List<T> entityContext = getEntityContext();
             checkIfNotExist(id);
             T item = Get(id);
             entityContext.remove(item);
-            return false;
+            return item;
         } catch (Exception ex){
             System.out.println(ex.getMessage());
-            return false;
+            return null;
         }
     }
 
     @Override
-    public boolean Update(T item) {
+    public T Update(T item) {
         try{
             String itemId = item.getId();
             checkIfNotExist(itemId);
             Delete(itemId);
             Add(item);
-            return true;
+            return item;
         } catch (Exception ex){
             System.out.println(ex.getMessage());
-            return false;
+            return null;
         }
     }
 }
