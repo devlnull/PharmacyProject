@@ -21,4 +21,14 @@ public class Address extends Entity{
         this._line1 = line1;
         this._line2 = line2;
     }
+
+    public String getAddressInLine(){
+        String strAddressInLine = String.format("%s - %s - %s - %s - %s",
+                this._country, this._city, this._neighborhood, this._line1, this._line2);
+        return strAddressInLine.trim();
+    }
+
+    public String getCountry(){
+        return _country;
+    }
 }

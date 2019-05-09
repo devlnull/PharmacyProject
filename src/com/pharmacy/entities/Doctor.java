@@ -9,7 +9,7 @@ public class Doctor extends Person {
 
     public Doctor(String firstname, String lastname){
         super(firstname, lastname);
-        this._doctorLicenses = new LinkedList<>();
+        this._doctorLicenses = new LinkedList<DoctorLicense>();
         this._scripts = new LinkedList<>();
     }
 

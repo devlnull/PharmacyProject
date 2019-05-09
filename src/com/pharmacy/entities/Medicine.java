@@ -12,7 +12,7 @@ public class Medicine extends Entity{
 
     public Medicine(String name, MedicineCategory category, String dosage){
         setMedicineInfo(name, category, dosage);
-        this._products = new LinkedList<>();
+        this._products = new LinkedList<Product>();
         this._insuranceSupports = new LinkedList<>();
     }
 
