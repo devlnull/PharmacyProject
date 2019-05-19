@@ -1,37 +1,20 @@
 package com.utils;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import com.google.common.hash.Hashing;
+import java.nio.charset.StandardCharsets;
 
 public class HashHelper {
-    public static String hashToSHA256(String passwordToHash)
+    public static String hashToSHA256(String originalString)
     {
-        String generatedPassword = null;
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte[] salt = getSalt();
-            md.update(salt);
-            byte[] bytes = md.digest(passwordToHash.getBytes());
-            StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            generatedPassword = sb.toString();
-        }
-        catch (NoSuchAlgorithmException e)
-        {
-            e.printStackTrace();
-        }
-        return generatedPassword;
+        return Hashing.sha256()
+                .hashString(originalString, StandardCharsets.UTF_8)
+                .toString();
     }
 
-    private static byte[] getSalt() throws NoSuchAlgorithmException
-    {
-        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
-        byte[] salt = new byte[16];
-        sr.nextBytes(salt);
-        return salt;
+    public static boolean Equal(String RawString, String HashString){
+        String newHash = Hashing.sha256()
+                .hashString(RawString, StandardCharsets.UTF_8)
+                .toString();
+        return newHash.equals(HashString);
     }
 }
