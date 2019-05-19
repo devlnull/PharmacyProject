@@ -9,4 +9,6 @@ public interface IUserService {
     boolean ActivateUser(String username);
     boolean DeActivateUser(String username);
     User GetUser(String username);
+    boolean LogIn(String username, String password);
+    boolean LogOut(String username);
 }

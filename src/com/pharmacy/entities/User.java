@@ -12,6 +12,7 @@ public class User extends Entity{
     private Boolean _lockoutEnabled;
     private Integer _accessFailedCount;
     private Address _address;
+    private boolean _isLogedIn;
     private UserStatus _status = UserStatus.Deactive;
 
     public User(String username, String password){
@@ -35,7 +36,19 @@ public class User extends Entity{
         this._address = address;
     }
 
+    public boolean getLogedIn(){
+        return _isLogedIn;
+    }
+
+    public void setLogedIn(boolean val){
+        this._isLogedIn = val;
+    }
+
     public String getUserName(){
         return _username;
+    }
+
+    public String getHashPassword(){
+        return this._passwordHash;
     }
 }

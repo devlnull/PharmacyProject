@@ -3,6 +3,7 @@ package com.pharmacy.services;
 import com.pharmacy.entities.User;
 import com.pharmacy.entities.UserStatus;
 import com.pharmacy.repo.IRepo;
+import com.utils.HashHelper;
 
 public class UserService implements IUserService {
     private final IRepo<User> _userRepo;
@@ -39,6 +40,19 @@ public class UserService implements IUserService {
         if(user == null) return false;
         user.applyStatus(UserStatus.Deactive);
         return true;
+    }
+
+    @Override
+    public boolean LogIn(String username, String password) {
+        User user = GetUser(username);
+        return HashHelper.Equal(password, user.getHashPassword());
+    }
+
+    @Override
+    public boolean LogOut(String username) {
+        User user = GetUser(username);
+        user.setLogedIn(true);
+        return user.getLogedIn();
     }
 
     @Override

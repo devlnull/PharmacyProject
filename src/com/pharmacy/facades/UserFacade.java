@@ -57,6 +57,16 @@ public class UserFacade implements IUserFacade {
     }
 
     @Override
+    public boolean LogIn(String username, String password) {
+        return _userService.LogIn(username, password);
+    }
+
+    @Override
+    public boolean LogOut(String username) {
+        return _userService.LogOut(username);
+    }
+
+    @Override
     public void ActivateUser(String username) {
         _userService.ActivateUser(username);
     }
