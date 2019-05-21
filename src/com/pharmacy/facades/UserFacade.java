@@ -1,10 +1,12 @@
 package com.pharmacy.facades;
 
-import com.pharmacy.entities.Doctor;
 import com.pharmacy.entities.Person;
 import com.pharmacy.entities.User;
 import com.pharmacy.models.MemberRegisterModel;
-import com.pharmacy.services.*;
+import com.pharmacy.services.IDoctorService;
+import com.pharmacy.services.IEmployeeService;
+import com.pharmacy.services.IPatientService;
+import com.pharmacy.services.IUserService;
 
 public class UserFacade implements IUserFacade {
 
@@ -28,7 +30,8 @@ public class UserFacade implements IUserFacade {
     public boolean CreateMember(MemberRegisterModel registerModel) {
         Person subUser = null;
         User user = null;
-        user = _userService.CreateUser(registerModel.userName, registerModel.password);
+        user = _userService.CreateUser(registerModel.userName,
+                registerModel.password, registerModel.userType);
         switch (registerModel.userType) {
             case Employee:
                 subUser = _employeeService.Create(user.getId(), registerModel.firstName,
@@ -48,12 +51,35 @@ public class UserFacade implements IUserFacade {
 
     @Override
     public User GetUser(String username) {
-        return _userService.GetUser(username);
+        User user = _userService.GetUser(username);
+        user.setPerson(GetSubUser(user));
+        return user;
     }
 
     @Override
-    public Doctor GetDoctor(String userId) {
-        return _doctorService.GetByUserId(userId);
+    public User GetUserById(String userId) {
+        User user = _userService.GetUserById(userId);
+        user.setPerson(GetSubUser(user));
+        return user;
+    }
+
+    @Override
+    public Person GetSubUser(User user){
+        switch(user.getUserType()){
+            case Doctor:
+                return _doctorService.GetByUserId(user.getId());
+            case Patient:
+                return _patientService.GetByUserId(user.getId());
+            case Employee:
+                return _employeeService.GetByUserId(user.getId());
+        }
+        return null;
+    }
+
+    @Override
+    public Person GetSubUserById(String userId){
+        User user = GetUserById(userId);
+        return GetSubUser(user);
     }
 
     @Override
@@ -62,8 +88,8 @@ public class UserFacade implements IUserFacade {
     }
 
     @Override
-    public boolean LogOut(String username) {
-        return _userService.LogOut(username);
+    public void LogOut(String username) {
+        _userService.LogOut(username);
     }
 
     @Override

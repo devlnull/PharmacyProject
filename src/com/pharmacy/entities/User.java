@@ -1,5 +1,6 @@
 package com.pharmacy.entities;
 
+import com.pharmacy.context.UserType;
 import com.utils.HashHelper;
 
 public class User extends Entity{
@@ -12,12 +13,15 @@ public class User extends Entity{
     private Boolean _lockoutEnabled;
     private Integer _accessFailedCount;
     private Address _address;
-    private boolean _isLogedIn;
-    private UserStatus _status = UserStatus.Deactive;
+    private boolean _isLoggedIn;
+    private Person _person;
+    private final UserType _userType;
+    private UserStatus _status = UserStatus.Active;
 
-    public User(String username, String password){
+    public User(String username, String password, UserType userType){
         this._username = username;
         this._passwordHash = HashHelper.hashToSHA256(password);
+        this._userType = userType;
     }
 
     public void setRequiredInfo(String username, String password){
@@ -36,12 +40,12 @@ public class User extends Entity{
         this._address = address;
     }
 
-    public boolean getLogedIn(){
-        return _isLogedIn;
+    public boolean getLoggedIn(){
+        return _isLoggedIn;
     }
 
-    public void setLogedIn(boolean val){
-        this._isLogedIn = val;
+    public void setLoggedIn(boolean val){
+        this._isLoggedIn = val;
     }
 
     public String getUserName(){
@@ -50,5 +54,18 @@ public class User extends Entity{
 
     public String getHashPassword(){
         return this._passwordHash;
+    }
+
+
+    public void setPerson(Person person){
+        this._person = person;
+    }
+
+    public Person getPerson(){
+        return this._person;
+    }
+
+    public UserType getUserType(){
+        return this._userType;
     }
 }

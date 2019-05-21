@@ -37,7 +37,7 @@ public class UserFacadeTests {
         IUserFacade facade = FacadeTestHelper.getUserFacade(context);
         facade.CreateMember(getRegisterModel());
         User targetUser = facade.GetUser("doc1");
-        Doctor targetDoc = facade.GetDoctor(targetUser.getId());
+        Doctor targetDoc = (Doctor)facade.GetSubUserById(targetUser.getId());
         Assert.assertNotNull(targetUser);
         Assert.assertNotNull(targetDoc);
     }
