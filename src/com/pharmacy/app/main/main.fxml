@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -18,21 +19,21 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="424.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="778.0" minHeight="10.0" prefHeight="778.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <GridPane prefWidth="1024.0" style="-fx-background-color: silver;" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+      <GridPane prefHeight="67.0" prefWidth="1024.0" style="-fx-background-color: #510455;" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
-          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
+          <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="59.0" vgrow="NEVER" />
+          <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="41.0" vgrow="NEVER" />
         </rowConstraints>
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="108.0" prefWidth="1024.0" text="Pharmacy Project" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="108.0" prefWidth="1024.0" text="Pharmacy Project" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                <font>
                   <Font name="Arial Bold" size="36.0" />
                </font>
@@ -45,7 +46,7 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <children>
-                  <MenuBar prefHeight="50.0" prefWidth="1024.0">
+                  <MenuBar prefHeight="40.0" prefWidth="1024.0">
                     <menus>
                         <Menu mnemonicParsing="false" text="Main">
                           <items>
@@ -62,7 +63,26 @@
                     </menus>
                   </MenuBar>
                </children></HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="374.0" spacing="10.0" GridPane.columnIndex="1">
+               <children>
+                  <Label fx:id="lbl_username" text="Label" textFill="WHITE" />
+                  <Button fx:id="btn_auth" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btn_register" mnemonicParsing="false" text="Register" />
+               </children></HBox>
          </children>
+      </GridPane>
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ddd; -fx-border-color: #686868;" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <GridPane style="-fx-background-color: #e5e5e5;" GridPane.columnSpan="2" GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="341.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="716.0" minWidth="10.0" prefWidth="342.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="716.0" minWidth="10.0" prefWidth="341.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
       </GridPane>
    </children>
 </GridPane>
