@@ -1,6 +1,7 @@
 package test.java;
 
 import com.pharmacy.context.IContext;
+import com.pharmacy.context.UserType;
 import com.pharmacy.entities.Doctor;
 import com.pharmacy.entities.Employee;
 import com.pharmacy.entities.Patient;
@@ -13,7 +14,7 @@ public class ServiceTestHelper {
 
     public static IUserService getUserService(IContext context){
         IRepo<User> repo = new InMemoryRepo<>(context, User.class);
-        repo.Add(new User("test", "P@$$W0rd"));
+        repo.Add(new User("test", "P@$$W0rd", UserType.Patient));
         return new UserService(repo);
     }
 
