@@ -1,5 +1,6 @@
 package test.java;
 
+import com.pharmacy.context.UserType;
 import org.junit.Assert;
 import org.junit.Test;
 import com.pharmacy.context.IContext;
@@ -15,7 +16,7 @@ public class UserServiceTests {
     private IUserService getService() {
         IContext context = new InMemoryContext();
         IRepo<User> repo = new InMemoryRepo<>(context, User.class);
-        repo.Add(new User("test", "P@$$W0rd"));
+        repo.Add(new User("test", "P@$$W0rd", UserType.Patient));
         return new UserService(repo);
     }
 
@@ -38,7 +39,7 @@ public class UserServiceTests {
     @Test
     public void Create_ExistUser_MustNotCreate(){
         IUserService service = getService();
-        User result = service.CreateUser("test","P@$$W0rd");
+        User result = service.CreateUser("test","P@$$W0rd", UserType.Patient);
         Assert.assertNull(result);
     }
 
@@ -46,7 +47,7 @@ public class UserServiceTests {
     @Test
     public void Create_NotExistUser_MustCreate(){
         IUserService service = getService();
-        User result = service.CreateUser("test1","P@$$W0rd");
+        User result = service.CreateUser("test1","P@$$W0rd", UserType.Patient);
         Assert.assertNotNull(result);
     }
 }

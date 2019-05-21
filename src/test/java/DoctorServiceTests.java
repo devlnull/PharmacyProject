@@ -2,6 +2,7 @@ package test.java;
 
 import com.pharmacy.context.IContext;
 import com.pharmacy.context.InMemoryContext;
+import com.pharmacy.context.UserType;
 import com.pharmacy.entities.Doctor;
 import com.pharmacy.entities.User;
 import com.pharmacy.services.IDoctorService;
@@ -29,7 +30,7 @@ public class DoctorServiceTests {
     public void Create_NotExitUser_MustCreate(){
         IDoctorService doctorService = ServiceTestHelper.getDoctorService(context);
         IUserService userService = ServiceTestHelper.getUserService(context);
-        User user = userService.CreateUser("test9123", "P@$$W0rd");
+        User user = userService.CreateUser("test9123", "P@$$W0rd", UserType.Patient);
         Doctor result = doctorService.Create(user.getId(), "test", "test");
         Assert.assertNotNull(result);
     }
