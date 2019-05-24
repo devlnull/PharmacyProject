@@ -7,8 +7,10 @@ public class ContextFactory {
     private static IContext instance = null;
 
     public static IContext create(){
-        if(instance == null)
+        if(instance == null) {
             instance = new InMemoryContext();
+            instance = MockDataContext.MockContext(instance);
+        }
         return instance;
     }
 }

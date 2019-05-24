@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.app.main.DoctorScriptDetailController">
+   <children>
+      <Label layoutX="14.0" layoutY="24.0" text="Request from : ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_patient" alignment="CENTER" layoutX="151.0" layoutY="20.0" prefHeight="35.0" prefWidth="304.0" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Line endX="200.0" fill="#a1a1a1" layoutX="300.0" layoutY="79.0" startX="-300.0" stroke="#949494" />
+      <TextArea fx:id="txt_request" editable="false" layoutX="9.0" layoutY="89.0" prefHeight="308.0" prefWidth="482.0" />
+      <Button fx:id="btn_respond" layoutX="326.0" layoutY="430.0" mnemonicParsing="false" onAction="#respond" prefHeight="35.0" prefWidth="166.0" text="Respond to request" />
+      <Button fx:id="btn_exit" layoutX="178.0" layoutY="432.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="130.0" text="Back to scripts" />
+   </children>
+</AnchorPane>

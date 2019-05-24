@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.app.main.DoctorRespondController">
+   <children>
+      <GridPane layoutY="-1.0" prefHeight="800.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="379.0" minHeight="315.0" prefHeight="315.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="485.0" minHeight="10.0" prefHeight="485.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane prefHeight="289.0" prefWidth="600.0" style="-fx-background-color: #cccccc;" GridPane.columnSpan="2">
+               <children>
+                  <TextArea fx:id="txt_respond" layoutX="14.0" layoutY="14.0" prefHeight="283.0" prefWidth="575.0" promptText="Type your script and advices..." />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebebeb;" GridPane.columnSpan="2" GridPane.rowIndex="1">
+               <children>
+                  <ComboBox fx:id="combo_med" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="450.0" promptText="Select a medicine" />
+                  <Button fx:id="btn_add" layoutX="474.0" layoutY="14.0" mnemonicParsing="false" onAction="#addMedicine" prefHeight="31.0" prefWidth="114.0" text="Add to list" />
+                  <ListView fx:id="lst_med" layoutX="14.0" layoutY="58.0" prefHeight="331.0" prefWidth="575.0" />
+                  <Button fx:id="btn_submit" layoutX="437.0" layoutY="413.0" mnemonicParsing="false" onAction="#submit" prefHeight="39.0" prefWidth="149.0" text="Submit" />
+                  <Button fx:id="btn_clear" layoutX="14.0" layoutY="398.0" mnemonicParsing="false" onAction="#clearList" prefHeight="31.0" prefWidth="85.0" text="clear list" />
+                  <Button fx:id="btn_close" layoutX="319.0" layoutY="414.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="105.0" text="Close" />
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
