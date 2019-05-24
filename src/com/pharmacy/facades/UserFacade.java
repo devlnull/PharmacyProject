@@ -1,5 +1,8 @@
 package com.pharmacy.facades;
 
+import com.pharmacy.context.UserType;
+import com.pharmacy.entities.Doctor;
+import com.pharmacy.entities.Patient;
 import com.pharmacy.entities.Person;
 import com.pharmacy.entities.User;
 import com.pharmacy.models.MemberRegisterModel;
@@ -7,6 +10,8 @@ import com.pharmacy.services.IDoctorService;
 import com.pharmacy.services.IEmployeeService;
 import com.pharmacy.services.IPatientService;
 import com.pharmacy.services.IUserService;
+
+import java.util.List;
 
 public class UserFacade implements IUserFacade {
 
@@ -51,16 +56,17 @@ public class UserFacade implements IUserFacade {
 
     @Override
     public User GetUser(String username) {
-        User user = _userService.GetUser(username);
-        user.setPerson(GetSubUser(user));
-        return user;
+        return _userService.GetUser(username);
     }
 
     @Override
     public User GetUserById(String userId) {
-        User user = _userService.GetUserById(userId);
-        user.setPerson(GetSubUser(user));
-        return user;
+        return _userService.GetUserById(userId);
+    }
+
+    @Override
+    public List<User> GetGroupOfUsers(UserType userType) {
+        return _userService.GetGroupOfUsers(userType);
     }
 
     @Override
@@ -100,5 +106,15 @@ public class UserFacade implements IUserFacade {
     @Override
     public void DeActiveUser(String username) {
         _userService.ActivateUser(username);
+    }
+
+    @Override
+    public Doctor GetDoctorById(String doctorId) {
+        return _doctorService.GetById(doctorId);
+    }
+
+    @Override
+    public Patient GetPatientById(String patientId) {
+        return _patientService.GetById(patientId);
     }
 }

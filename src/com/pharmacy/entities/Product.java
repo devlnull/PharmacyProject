@@ -15,10 +15,11 @@ public class Product extends Entity{
         this._company = comapny;
     }
 
-    public void setProuctInfo(int quantity, double price, Date createDate, Date expireDate){
+    public Product setProuctInfo(int quantity, double price, Date createDate, Date expireDate){
         this._quantity = quantity;
         this._price = price;
         this._createDate = createDate;
         this._expireDate = expireDate;
+        return this;
     }
 }

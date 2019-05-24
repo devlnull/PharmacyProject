@@ -23,4 +23,9 @@ public class PatientService implements IPatientService {
     public Patient GetByUserId(String userId) {
         return _patientRepo.Get(x -> x.getUserId().equals(userId));
     }
+
+    @Override
+    public Patient GetById(String patientId) {
+        return _patientRepo.Get(patientId);
+    }
 }

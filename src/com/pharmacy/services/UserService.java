@@ -1,10 +1,14 @@
 package com.pharmacy.services;
 
 import com.pharmacy.context.UserType;
+import com.pharmacy.entities.Doctor;
 import com.pharmacy.entities.User;
 import com.pharmacy.entities.UserStatus;
 import com.pharmacy.repo.IRepo;
 import com.utils.HashHelper;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserService implements IUserService {
     private final IRepo<User> _userRepo;
@@ -63,5 +67,12 @@ public class UserService implements IUserService {
     @Override
     public User GetUserById(String userId) {
         return _userRepo.Get(x -> x.getId().equals(userId));
+    }
+
+    public List<User> GetGroupOfUsers(UserType userType){
+        return _userRepo.GetAll()
+                .stream()
+                .filter(x -> x.getUserType() == userType)
+                .collect(Collectors.toList());
     }
 }

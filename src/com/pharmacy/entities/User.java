@@ -14,7 +14,6 @@ public class User extends Entity{
     private Integer _accessFailedCount;
     private Address _address;
     private boolean _isLoggedIn;
-    private Person _person;
     private final UserType _userType;
     private UserStatus _status = UserStatus.Active;
 
@@ -54,15 +53,6 @@ public class User extends Entity{
 
     public String getHashPassword(){
         return this._passwordHash;
-    }
-
-
-    public void setPerson(Person person){
-        this._person = person;
-    }
-
-    public Person getPerson(){
-        return this._person;
     }
 
     public UserType getUserType(){

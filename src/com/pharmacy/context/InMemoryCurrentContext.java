@@ -23,11 +23,7 @@ public class InMemoryCurrentContext implements ICurrentContext{
 
     @Override
     public String getCurrentUserInfo() {
-        if(_user.getPerson() == null)
-            return _user.getUserName();
-        else {
-            return _user.getPerson().getName();
-        }
+        return _user.getUserName();
     }
 
     @Override

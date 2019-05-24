@@ -16,6 +16,7 @@ public class WindowHelper {
             fxmlLoader.setLocation(location);
             Scene scene = new Scene(fxmlLoader.load(), width, height);
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle(title);
             stage.setScene(scene);
             stage.show();

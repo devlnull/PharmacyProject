@@ -23,4 +23,9 @@ public class DoctorService implements IDoctorService {
     public Doctor GetByUserId(String userId) {
         return _docRepo.Get(x -> x.getUserId().equals(userId));
     }
+
+    @Override
+    public Doctor GetById(String doctorId) {
+        return _docRepo.Get(doctorId);
+    }
 }

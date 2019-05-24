@@ -4,21 +4,29 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Script extends Entity{
-    private Patient _patient;
+    private String _patientId;
     private String _request;
-    private Doctor _doctor;
+    private String _response;
+    private String _doctorId;
     private ScriptStatus _status;
     private List<ScriptDetail> scriptDetails;
 
-    public Script(Patient patinet, Doctor doctor){
-        this._patient = patinet;
-        this._doctor = doctor;
+    public Script(String patientId, String doctorId){
+        this._patientId = patientId;
+        this._doctorId = doctorId;
         scriptDetails = new LinkedList<>();
     }
 
-    public void setScriptInfo(String request, ScriptStatus status){
+    public Script setScriptInfo(String request, ScriptStatus status){
         this._request = request;
         this._status = status;
+        return this;
+    }
+
+    public Script setResponse(String response){
+        _response = response;
+        _status = ScriptStatus.Responded;
+        return this;
     }
 
     public void addScriptDetail(ScriptDetail detail){
@@ -29,17 +37,19 @@ public class Script extends Entity{
         return scriptDetails;
     }
 
-    public Patient getPatient() {
-        return _patient;
+    public String getPatientId() {
+        return _patientId;
     }
 
     public String getRequest() {
         return _request;
     }
 
-    public Doctor getDoctor() {
-        return _doctor;
+    public String getDoctorId() {
+        return _doctorId;
     }
+
+    public String getResponse() { return _response; }
 
     public ScriptStatus getStatus() {
         return _status;
