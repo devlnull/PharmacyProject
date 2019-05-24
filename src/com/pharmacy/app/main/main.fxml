@@ -10,79 +10,77 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.app.main.MainController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
-    <RowConstraints maxHeight="424.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="778.0" minHeight="10.0" prefHeight="778.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <GridPane prefHeight="67.0" prefWidth="1024.0" style="-fx-background-color: #510455;" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+<GridPane maxHeight="960.0" maxWidth="1024.0" minHeight="960.0" minWidth="1024.0" prefHeight="960.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.app.main.MainController">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="59.0" vgrow="NEVER" />
-          <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="41.0" vgrow="NEVER" />
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+          <RowConstraints maxHeight="424.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="778.0" minHeight="10.0" prefHeight="778.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="108.0" prefWidth="1024.0" text="Pharmacy Project" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
-               <font>
-                  <Font name="Arial Bold" size="36.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
+            <GridPane prefHeight="67.0" prefWidth="1024.0" style="-fx-background-color: #510455;" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="59.0" vgrow="NEVER" />
+                <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="41.0" vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="108.0" prefWidth="1024.0" text="Pharmacy Project" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                     <children>
+                        <MenuBar prefHeight="40.0" prefWidth="1048.0">
+                          <menus>
+                              <Menu mnemonicParsing="false" text="Main">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
+                                </items>
+                              </Menu>
+                            <Menu mnemonicParsing="false" text="Help">
+                              <items>
+                                <MenuItem fx:id="menu_item_about" mnemonicParsing="false" onAction="#menu_about" text="About" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="374.0" spacing="10.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="lbl_username" text="Label" textFill="WHITE" />
+                        <Button fx:id="btn_auth" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="btn_register" mnemonicParsing="false" text="Register" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <HBox fx:id="hbox_header" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #ddd; -fx-border-color: #686868;" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <padding>
-                  <Insets left="4.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
-            </Label>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
-               <children>
-                  <MenuBar prefHeight="40.0" prefWidth="1024.0">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Main">
-                          <items>
-                            <MenuItem mnemonicParsing="false" onAction="#loginShow" text="Login" />
-                              <MenuItem mnemonicParsing="false" onAction="#registerShow" text="Register" />
-                              <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
-                          </items>
-                        </Menu>
-                      <Menu mnemonicParsing="false" text="Help">
-                        <items>
-                          <MenuItem fx:id="menu_item_about" mnemonicParsing="false" onAction="#menu_about" text="About" />
-                        </items>
-                      </Menu>
-                    </menus>
-                  </MenuBar>
-               </children></HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="374.0" spacing="10.0" GridPane.columnIndex="1">
-               <children>
-                  <Label fx:id="lbl_username" text="Label" textFill="WHITE" />
-                  <Button fx:id="btn_auth" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="btn_register" mnemonicParsing="false" text="Register" />
-               </children></HBox>
+            </HBox>
+            <TilePane fx:id="tiles_content" prefHeight="200.0" prefWidth="200.0" tileAlignment="CENTER_LEFT" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </GridPane.margin>
+            </TilePane>
          </children>
       </GridPane>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ddd; -fx-border-color: #686868;" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-      <GridPane style="-fx-background-color: #e5e5e5;" GridPane.columnSpan="2" GridPane.rowIndex="2">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="341.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="716.0" minWidth="10.0" prefWidth="342.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="716.0" minWidth="10.0" prefWidth="341.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-   </children>
-</GridPane>

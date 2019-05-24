@@ -7,7 +7,7 @@ public class MedicineCategory extends Entity{
     private String _name;
     private List<Medicine> _medicines;
 
-    MedicineCategory(String name){
+    public MedicineCategory(String name){
         setName(name);
         _medicines = new LinkedList<>();
     }

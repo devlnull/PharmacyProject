@@ -22,6 +22,11 @@ public class Medicine extends Entity{
         this._category = category;
     }
 
+    @Override
+    public String toString(){
+        return String.format("%s|%s|%s", getCategory().getName(), getName(), getDosage());
+    }
+
     public List<Product> getProducts(){
         return _products;
     }
